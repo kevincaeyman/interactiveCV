@@ -5,6 +5,7 @@ import Home from "./Home";
 import Experience from "./Experience";
 import Services from "./Services";
 import GitHub from "./GitHub";
+import Contact from "./Contact";
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
       <Experience />
       <Services />
       <GitHub />
+      <Contact />
     </>
   );
 }
