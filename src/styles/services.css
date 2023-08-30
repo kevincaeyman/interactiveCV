@@ -1,0 +1,94 @@
+.services {
+  display: flex;
+  flex-flow: column wrap;
+  font-family: "Inter", sans-serif;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  height: 90vh;
+  padding-top: 10vh;
+}
+.services h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 64px;
+}
+.services p {
+  max-width: 50%;
+}
+.content {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.container {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 15px;
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+
+.container .skill-box {
+  width: 100%;
+  padding-bottom: 25px;
+}
+
+.skill-box .title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.skill-box .skill-bar {
+  height: 8px;
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 6px;
+  background: rgba(200, 0, 250, 0.5);
+}
+
+.skill-box .skill-per {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 95%;
+  border-radius: 6px;
+  background: white;
+  animation: progress 0.4s ease-in-out forwards;
+  opacity: 0;
+}
+
+.skill-per.css {
+  width: 80%;
+  animation-delay: 0.1s;
+}
+
+.skill-per.javascript {
+  width: 60%;
+  animation-delay: 0.2s;
+}
+.skill-per.nodejs {
+  width: 40%;
+  animation-delay: 0.3s;
+}
+.skill-per.reactjs {
+  width: 70%;
+  animation-delay: 0.3s;
+}
+.skill-per.expressjs {
+  width: 75%;
+  animation-delay: 0.3s;
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

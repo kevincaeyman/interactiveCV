@@ -1,0 +1,28 @@
+.github {
+  display: flex;
+  flex-flow: column wrap;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  height: 90vh;
+}
+.github h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 64px;
+  padding-bottom: 10vh;
+}
+.content {
+  justify-content: space-evenly;
+}
+.bottom-text {
+  align-self: flex-end;
+  justify-self: last baseline;
+  padding-right: 5vw;
+  margin-top: 25vh;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}

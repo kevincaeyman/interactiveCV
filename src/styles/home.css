@@ -1,0 +1,109 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Inter", sans-serif;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+.text {
+  margin-left: 25vw;
+  z-index: 999;
+}
+
+.home h1 {
+  font-weight: 700;
+  font-size: 64px;
+}
+.home p {
+  font-size: 24px;
+}
+.home button {
+  background-color: rgba(200, 0, 250, 0.5);
+  color: white;
+  font-family: "Inter";
+  font-size: 18px;
+  border: none;
+  width: 180px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.portrait {
+  right: 0;
+  bottom: 0;
+  width: 575px;
+  height: auto;
+  z-index: 1;
+}
+.emoji {
+  -webkit-animation-name: wiggle;
+  -ms-animation-name: wiggle;
+  animation-name: wiggle;
+  -webkit-animation-duration: 1000ms;
+  -ms-animation-duration: 1000ms;
+  animation-duration: 1000ms;
+  -webkit-animation-iteration-count: 3;
+  -ms-animation-iteration-count: 3;
+  animation-iteration-count: 3;
+  -webkit-animation-timing-function: ease-in-out;
+  -ms-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: rotate(10deg);
+  }
+  25% {
+    -webkit-transform: rotate(-10deg);
+  }
+  50% {
+    -webkit-transform: rotate(20deg);
+  }
+  75% {
+    -webkit-transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@-ms-keyframes wiggle {
+  0% {
+    -ms-transform: rotate(1deg);
+  }
+  25% {
+    -ms-transform: rotate(-1deg);
+  }
+  50% {
+    -ms-transform: rotate(1.5deg);
+  }
+  75% {
+    -ms-transform: rotate(-5deg);
+  }
+  100% {
+    -ms-transform: rotate(0deg);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+}
