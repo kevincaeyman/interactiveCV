@@ -7,4 +7,13 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ["Experience"],
   },
+  server: {
+    host: true,
+  },
+  scripts: {
+    dev: "vite",
+    build: "vite build",
+    preview: "vite preview",
+    host: "vite --host",
+  },
 });
