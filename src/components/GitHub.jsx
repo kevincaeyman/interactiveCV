@@ -6,7 +6,7 @@ function GitHub() {
     <div className="github">
       <h1>GitHub</h1>
       <div className="content">
-        <img src="../public/assets/GitHub.svg" alt="" />
+        <img src="public/assets/GitHub.svg" alt="" />
         <p>
           Ready to dive into the intricate labyrinth of my code? 🕵️‍♂️ <br />{" "}
           <br /> Take a stroll through my GitHub wonderland and witness the
