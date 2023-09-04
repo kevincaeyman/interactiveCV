@@ -1,25 +1,83 @@
+import {useState} from "react";
+import {FaBars} from "react-icons/fa";
+import {Link} from "react-scroll";
 import "../styles/navbar.css";
 
 function Navbar() {
+  const [activeLink, setActiveLink] = useState("home");
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+    setIsMenuOpen(false);
+    console.log(activeLink);
+  };
+
   return (
-    <div className="navbar">
-      <ul>
+    <div className={`navbar ${isMenuOpen ? "open" : ""}`}>
+      <div className="hamburger" onClick={toggleMenu}>
+        <FaBars />
+      </div>
+      <ul className={`nav-list ${isMenuOpen ? "open" : ""}`}>
         <li>
-          <a href="/" className="active">
+          <Link
+            to="home"
+            smooth={true}
+            duration={500}
+            className={activeLink === "home" ? "active" : ""}
+            onClick={() => handleLinkClick("home")}
+          >
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/experience">Experience</a>
+          <Link
+            to="experience"
+            smooth={true}
+            duration={500}
+            className={activeLink === "experience" ? "active" : ""}
+            onClick={() => handleLinkClick("experience")}
+          >
+            Experience
+          </Link>
         </li>
         <li>
-          <a href="/services">Services</a>
+          <Link
+            to="services"
+            smooth={true}
+            duration={500}
+            className={activeLink === "services" ? "active" : ""}
+            onClick={() => handleLinkClick("services")}
+          >
+            Services
+          </Link>
         </li>
         <li>
-          <a href="/github">GitHub</a>
+          <Link
+            to="github"
+            smooth={true}
+            duration={500}
+            className={activeLink === "github" ? "active" : ""}
+            onClick={() => handleLinkClick("github")}
+          >
+            GitHub
+          </Link>
         </li>
         <li>
-          <a href="contact/">Contact</a>
+          <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            className={activeLink === "contact" ? "active" : ""}
+            onClick={() => handleLinkClick("contact")}
+          >
+            Contact
+          </Link>
         </li>
       </ul>
     </div>

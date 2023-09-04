@@ -7,8 +7,8 @@
   overflow: hidden;
   position: relative;
   height: 80vh;
-  padding-bottom: 10vh;
-  padding-top: 10vh;
+  padding-bottom: 15vh;
+  padding-top: 5vh;
 }
 
 .contact h1 {
@@ -16,7 +16,6 @@
   font-size: 64px;
 }
 
-/* Style for the contact card container */
 .contact-card {
   width: 50vw;
   border-radius: 20px;
@@ -25,7 +24,6 @@
   padding: 20px;
 }
 
-/* Style for the form labels */
 .form-group label {
   display: flex;
   margin-bottom: 5px;
@@ -34,7 +32,6 @@
   color: #ff7c1d;
 }
 
-/* Style for the form input and textarea fields */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="text"],
@@ -46,10 +43,9 @@
   border-radius: 3px;
 }
 
-/* Style for the send button */
-button[type="submit"] {
-  background-color: #ff7c1d;
+button {
   color: white;
+  background-color: #ff7c1d;
   font-family: "Inter";
   font-size: 18px;
   border: none;
@@ -59,13 +55,70 @@ button[type="submit"] {
   border-radius: 30px;
   cursor: pointer;
 }
-
-/* Optional: Style for the subject field */
-#subject {
-  /* Add your specific styles here */
+.success-message {
+  color: #ff7c1d;
+  font-weight: normal;
+  font-size: 20px;
 }
 
-/* Optional: Style for the message field */
-#message {
-  /* Add your specific styles here */
+@media (max-width: 768px) {
+  .contact {
+    height: auto; /* Remove fixed height */
+    padding-top: 90px; /* Adjust top padding as needed */
+  }
+
+  .contact h1 {
+    font-size: 40px; /* Reduce the font size for h1 on smaller screens */
+    text-align: center; /* Center-align the title on smaller screens */
+  }
+
+  .contact-card {
+    width: 90%; /* Adjust card width for smaller screens */
+    padding: 10px; /* Adjust padding as needed */
+  }
+
+  .form-group label {
+    font-size: 18px; /* Reduce label font size on smaller screens */
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="text"],
+  .form-group textarea {
+    width: 90%; /* Use full width for input fields on smaller screens */
+    margin: 5px 0; /* Adjust margins to space input fields */
+  }
+
+  button {
+    width: 100%; /* Use full width for the button on smaller screens */
+  }
+}
+@media (min-width: 799px) and (max-width: 820px) {
+  .contact h1 {
+    font-size: 40px; /* Reduce the font size for h1 on smaller screens */
+    text-align: center; /* Center-align the title on smaller screens */
+  }
+
+  .contact-card {
+    width: 90%;
+    height: auto;
+    margin-bottom: 200px;
+  }
+
+  .form-group label {
+    font-size: 28px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="text"],
+  .form-group textarea {
+    width: 90%;
+    margin: 5px 0;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 20px;
+  }
 }

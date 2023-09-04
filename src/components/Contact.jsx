@@ -1,102 +1,69 @@
 /* eslint-disable react/no-unescaped-entities */
-import "../styles/contact.css"; // Import your CSS file for styling
-import { useState } from "react";
+import {useState} from "react";
+import emailjs from "@emailjs/browser";
+import {Element} from "react-scroll";
+import "../styles/contact.css";
 
-function ContactCard() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
+const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailInput = e.target.querySelector('input[name="user_email"]');
+    if (!emailPattern.test(emailInput.value)) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
 
-    // Simulate sending an email (opens the user's email client)
-    const emailContent = `Subject: ${formData.subject}\n\nMessage: ${formData.message}`;
-    const emailTo = "kevin.caeyman@gmail.com";
-    const emailSubject = `Contact Form Submission from ${formData.name}`;
-
-    const emailLink = `mailto:${emailTo}?subject=${encodeURIComponent(
-      emailSubject
-    )}&body=${encodeURIComponent(emailContent)}`;
-
-    window.location.href = emailLink;
-
-    // Set the form as submitted
-    setIsSubmitted(true);
+    emailjs
+      .sendForm(
+        "service_4gglcpb",
+        "template_6two4fz",
+        e.target,
+        "TzPL0g_M9DDEQR5KO"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setIsSubmitted(true);
+          setErrorMessage("");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
-    <div className="contact">
-      <h1>Let's have a chat!</h1>
-      <div className="contact-card">
-        {isSubmitted ? (
-          <div className="message-popup">
-            <p>Thank you for your message! We'll be in touch.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Your Name:</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Your Email:</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="subject">Subject (optional):</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Your Message:</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-            <button type="submit">Send</button>
-          </form>
-        )}
+    <Element name="contact">
+      <div className="contact">
+        <h1>Let's have a chat!</h1>
+        <div className="contact-card">
+          {isSubmitted ? (
+            <p className="success-message">
+              Thank you for your message, we'll be in touch soon.
+            </p>
+          ) : (
+            <form className="form-group" onSubmit={sendEmail}>
+              <label>Name</label>
+              <input type="text" name="user_name" required />
+              <label>Email</label>
+              <input type="email" name="user_email" required />
+              <label>Subject (optional)</label>
+              <input type="text" />
+              <label>Message</label>
+              <textarea name="message" required />
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
+              <button type="submit"> Send </button>
+            </form>
+          )}
+        </div>
       </div>
-    </div>
+    </Element>
   );
-}
+};
 
-export default ContactCard;
+export default Contact;
