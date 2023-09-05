@@ -16,13 +16,11 @@ function GitHub() {
             <img src="./GitHub.svg" alt="GitHub" />
           </a>
           <p>
-            Ready to dive into the intricate labyrinth of my code? 🕵️‍♂️ <br />{" "}
-            <br /> Take a stroll through my GitHub wonderland and witness the
-            magic unfold. <br /> <br />
-            Don't worry, I promise there are no dragons, just some
-            well-organized repositories waiting to impress! 👾 <br />
-            <br />
-            Explore away!
+            Ready to explore the depths of my codebase? 🕵️‍♂️ <br /> <br /> Take a
+            journey through my GitHub repository wonderland and witness the
+            magic unfold. <br /> <br /> Rest assured, there are no dragons here,
+            just well-organized repositories waiting to impress! 👾 <br />{" "}
+            <br /> Feel free to explore!
           </p>
         </div>
         <a
